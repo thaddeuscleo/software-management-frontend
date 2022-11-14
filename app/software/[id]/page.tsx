@@ -6,9 +6,9 @@ export default function SoftwareDetail({
   searchParams: { id: string };
 }) {
   return (
-      <div>
-          <p>{params.id}</p>
-          <p>{searchParams.id}</p>
-      </div>
+    <div>
+      <p>{params.id}</p>
+      <p>{searchParams.id}</p>
+    </div>
   );
 }

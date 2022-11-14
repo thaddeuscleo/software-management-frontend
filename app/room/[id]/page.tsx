@@ -1,7 +1,3 @@
 export default function RoomDetail() {
-    return(
-        <div>
-            bebek
-        </div>
-    );
+  return <div>bebek</div>;
 }
