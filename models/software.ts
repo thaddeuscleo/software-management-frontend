@@ -1,4 +1,4 @@
-export interface Softwares {
+export interface Software {
   currentLicense: string;
   group: string;
   id: string;

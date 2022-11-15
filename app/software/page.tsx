@@ -1,21 +1,16 @@
 import { gql } from "@apollo/client";
+import Link from "next/link";
 import client from "../../lib/grapql-client";
-import { Softwares } from "../../models/softwares";
+import { Software } from "../../models/software";
 
-const getSoftwares = async (): Promise<Softwares[]> => {
+const getSoftwares = async (): Promise<Software[]> => {
   const { data } = await client.query({
     query: gql`
       query get_all_software {
         softwares {
-          currentLicense
           group
           id
-          installerPath
-          license
-          note
-          numberOfLicense
           softwareName
-          version
         }
       }
     `,
@@ -23,8 +18,8 @@ const getSoftwares = async (): Promise<Softwares[]> => {
   return data.softwares;
 };
 
-export default async function Software() {
-  const softwares: Softwares[] = await getSoftwares();
+export default async function SoftwarePage() {
+  const softwares: Software[] = await getSoftwares();
 
   return (
     <>
@@ -74,12 +69,12 @@ export default async function Software() {
                         {software.group}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a
-                          href="#"
+                        <Link
+                          href={`/software/${software.id}`}
                           className="text-indigo-600 hover:text-indigo-900"
                         >
                           Detail
-                        </a>
+                        </Link>
                       </td>
                     </tr>
                   ))}
