@@ -20,7 +20,7 @@ const navigation = [
   },
   { name: "Rooms", icon: FolderIcon, href: "/room", count: 4, current: false },
   { name: "Courses", icon: CalendarIcon, href: "/course", current: false },
-  { name: "Patch", icon: InboxIcon, href: "#", count: 12, current: false },
+  { name: "Upload", icon: InboxIcon, href: "/upload", count: 12, current: false },
   { name: "Reports", icon: ChartBarIcon, href: "#", current: false },
 ];
 
