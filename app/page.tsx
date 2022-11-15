@@ -51,7 +51,7 @@ export default function Dashboard() {
         </dl>
       </div>
 
-     {/* Course */}
+      {/* Course */}
       <div className="mt-10">
         <h3 className="text-lg leading-6 font-medium text-gray-900">
           Total Courses
