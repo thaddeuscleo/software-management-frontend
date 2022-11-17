@@ -19,7 +19,13 @@ const navigationList = [
     count: 3,
     current: false,
   },
-  { name: "Rooms", icon: FolderIcon, href: "/room", count: 4, current: false },
+  {
+    name: "Rooms",
+    icon: FolderIcon,
+    href: "/room?currentPage=1",
+    count: 4,
+    current: false,
+  },
   {
     name: "Courses",
     icon: CalendarIcon,

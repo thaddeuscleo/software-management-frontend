@@ -52,7 +52,7 @@ export default async function SoftwarePage({
 }) {
   const softwares: Software[] = await getSoftwares(searchParams.currentPage);
   const softwareCount = await getSoftwareCount();
-  const numberOfPage = softwareCount / take;
+  const numberOfPage = Math.ceil(softwareCount / take);
 
   return (
     <>
@@ -138,7 +138,7 @@ export default async function SoftwarePage({
                       </span>{" "}
                       to{" "}
                       <span className="font-medium">
-                        {Number(searchParams.currentPage) * take}
+                        {((Number(searchParams.currentPage) - 1) * take) + softwares.length}
                       </span>{" "}
                       of <span className="font-medium">{softwareCount}</span>{" "}
                       results
