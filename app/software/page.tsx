@@ -138,7 +138,8 @@ export default async function SoftwarePage({
                       </span>{" "}
                       to{" "}
                       <span className="font-medium">
-                        {((Number(searchParams.currentPage) - 1) * take) + softwares.length}
+                        {(Number(searchParams.currentPage) - 1) * take +
+                          softwares.length}
                       </span>{" "}
                       of <span className="font-medium">{softwareCount}</span>{" "}
                       results

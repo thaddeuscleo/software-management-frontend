@@ -15,7 +15,7 @@ const getRoomCount = async (): Promise<number> => {
     `,
   });
 
-  return data.roomCount
+  return data.roomCount;
 };
 
 const getRooms = async (currentPage: number): Promise<Room[]> => {
@@ -24,17 +24,17 @@ const getRooms = async (currentPage: number): Promise<Room[]> => {
 
   const { data } = await client.query({
     query: gql`
-    query Rooms($skip: Int, $take: Int) {
-      rooms(skip: $skip, take: $take) {
-        id
-        roomNumber
+      query Rooms($skip: Int, $take: Int) {
+        rooms(skip: $skip, take: $take) {
+          id
+          roomNumber
+        }
       }
-    }
     `,
     variables: {
       skip,
-      take
-    }
+      take,
+    },
   });
   return data.rooms;
 };
@@ -42,9 +42,8 @@ const getRooms = async (currentPage: number): Promise<Room[]> => {
 export default async function RoomDashboard({
   searchParams,
 }: {
-  searchParams: {currentPage: number};
+  searchParams: { currentPage: number };
 }) {
-
   const rooms: Room[] = await getRooms(searchParams.currentPage);
   const roomCount = await getRoomCount();
   const numberOfPage = Math.ceil(roomCount / take);
@@ -131,11 +130,12 @@ export default async function RoomDashboard({
                     <p className="text-sm text-gray-700">
                       Showing{" "}
                       <span className="font-medium">
-                        {((Number(searchParams.currentPage) - 1) * take) + 1}
+                        {(Number(searchParams.currentPage) - 1) * take + 1}
                       </span>{" "}
                       to{" "}
                       <span className="font-medium">
-                        {((Number(searchParams.currentPage) - 1) * take) + rooms.length}
+                        {(Number(searchParams.currentPage) - 1) * take +
+                          rooms.length}
                       </span>{" "}
                       of <span className="font-medium">{roomCount}</span>{" "}
                       results
@@ -183,9 +183,6 @@ export default async function RoomDashboard({
                   </div>
                 </div>
               </div>
-
-
-
             </div>
           </div>
         </div>

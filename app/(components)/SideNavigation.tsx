@@ -2,19 +2,19 @@ import Link from "next/link";
 
 type sideNavProp = {
   navigations?: {
-      name: string,
-      href: string,
-      icon: any,
-      count?: number,
-      current?: boolean
-    }[],
-}
+    name: string;
+    href: string;
+    icon: any;
+    count?: number;
+    current?: boolean;
+  }[];
+};
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function SideNavigation({navigations}: sideNavProp) {
+export default function SideNavigation({ navigations }: sideNavProp) {
   return (
     <div className="flex flex-col w-64 min-h-screen sticky top-0">
       <div className="flex flex-col flex-grow pt-8 pb-4 bg-white overflow-y-auto">
